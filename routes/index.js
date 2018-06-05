@@ -1,3 +1,5 @@
+/* MODULE / MIDDLEWARE INSTALLED FOR INDEX */
+
 var express = require('express');
 var router = express.Router();
 var mongo = require('mongodb').MongoClient;
@@ -6,10 +8,13 @@ var assert = require('assert');
 
 var url = 'mongodb://localhost:27017/myDatabase';
 
-/* GET home page. */
+/* GET HOME PAGE */
+
 router.get('/', function(req, res, next) {
   res.render('index');
 });
+
+/* GET ASSET DATA FROM ASSETS COLLECTION */
 
 router.get('/get-data', function(req, res, next) {
   var resultArray = [];
@@ -26,6 +31,8 @@ router.get('/get-data', function(req, res, next) {
   });
 });
 
+/* INSERT ASSET VALUES FROM 'index.hbs' INTO ASSET COLLECTION */
+
 router.post('/insert', function(req, res, next) {
   var Asset = {
     AssetID: req.body.AssetID,
@@ -40,6 +47,8 @@ router.post('/insert', function(req, res, next) {
     Status: req.body.Status
   };
 
+    /* MONGODB CONNECTION FOR INSERTING VALUES */
+
   mongo.connect(url, function(err, db) {
     assert.equal(null, err);
     db.collection('Assets').insertOne(Asset, function(err, result) {
@@ -51,6 +60,8 @@ router.post('/insert', function(req, res, next) {
 
   res.redirect('/get-data');
 });
+
+/* UPDATE ASSET VALUES FROM 'index.hbs' INTO ASSET COLLECTION */
 
 router.post('/update', function(req, res, next) {
   var Asset = {
@@ -67,6 +78,8 @@ router.post('/update', function(req, res, next) {
   };
   var id = req.body.id;
 
+    /* MONGODB CONNECTION FOR UPDATING VALUES */
+
     mongo.connect(url, function(err, db) {
         assert.equal(null, err);
         db.collection('Assets').updateOne({"_id": objectId(id)}, {$set: Asset}, function(err, result) {
@@ -78,6 +91,8 @@ router.post('/update', function(req, res, next) {
 
     res.redirect('/');
 });
+
+/* DELETE ASSET VALUES FROM 'index.hbs' ON ASSET COLLECTION */
 
 router.post('/delete', function(req, res, next) {
   var id = req.body.id;
