@@ -54,9 +54,16 @@ router.post('/insert', function(req, res, next) {
 
 router.post('/update', function(req, res, next) {
   var Asset = {
-    title: req.body.title,
-    content: req.body.content,
-    author: req.body.author
+      AssetID: req.body.AssetID,
+      SerialNo: req.body.SerialNo,
+      Media: req.body.Media,
+      CopyNo: req.body.CopyNo,
+      Location: req.body.Location,
+      Description: req.body.Description,
+      RegisteredBy: req.body.RegisteredBy,
+      RegisteredDate: req.body.RegisteredDate,
+      ProtectiveMarking: req.body.ProtectiveMarking,
+      Status: req.body.Status
   };
   var id = req.body.id;
 
