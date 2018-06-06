@@ -14,6 +14,23 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
+/* GET REGISTER ASSETS PAGE */
+
+router.get('/Reg-Asset', function(req, res, next) {
+    res.render('regAsset');
+});
+
+/* GET REGISTER ASSETS PAGE */
+
+router.get('/Edit-Asset', function(req, res, next) {
+    res.render('editAsset');
+});
+
+/* GET REGISTER ASSETS PAGE */
+
+router.get('/View-Asset', function(req, res, next) {
+    res.render('index');
+});
 /* GET ASSET DATA FROM ASSETS COLLECTION */
 
 router.get('/get-data', function(req, res, next) {

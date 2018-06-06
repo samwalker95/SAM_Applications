@@ -1,5 +1,4 @@
-<h1>Assets Page</h1>
-
+<h1>editAsset</h1>
 
 <a href="/View-Asset">View Assets</a>
 <a href="/Reg-Asset">Register Assets</a>
@@ -55,31 +54,9 @@
 
 <!-- SECTION FOR RETRIEVING EXISTING ASSETS FROM 'ASSETS' COLLECTION -->
 
-<section class="get">
-    <h3>Get Data</h3>
-    <a href="/get-data">LOAD DATA</a>
-    <div>
-        {{# each items }}
-            <article class="item">
-                <div>AssetID: {{ this.AssetID }}</div>
-                <div>SerialNo: {{ this.SerialNo }}</div>
-                <div>Media: {{ this.Media }}</div>
-                <div>CopyNo: {{ this.CopyNo }}</div>
-                <div>Location: {{ this.Location }}</div>
-                <div>Description: {{ this.Description }}</div>
-                <div>RegisteredBy: {{ this.RegisteredBy }}</div>
-                <div>RegisteredDate: {{ this.RegisteredDate }}</div>
-                <div>ProtectiveMarking: {{ this.ProtectiveMarking }}</div>
-                <div>Status: {{ this.Status }}</div>
-                <div>ID: {{ this._id }}</div>
-            </article>
-        {{/each}}
-    </div>
-</section>
-
 <!-- SECTION FOR UPDATING EXISTING ASSETS -->
 
-<!--<section class="update">
+<section class="update">
     <h3>Update Data</h3>
     <form action="/update" method="post">
         <div class="input">
@@ -129,11 +106,11 @@
         <button type="submit">UPDATE</button>
     </form>
 </section>
-</section>-->
+</section>
 
 <!-- SECTION FOR DELETING EXISTING ASSETS -->
 
-<!--<section class="delete">
+<section class="delete">
     <h3>Delete Data</h3>
     <form action="/delete" method="post">
         <div class="input">
@@ -142,4 +119,4 @@
         </div>
         <button type="submit">DELETE</button>
     </form>
-</section>-->
+</section>
