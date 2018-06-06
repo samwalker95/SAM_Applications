@@ -10,30 +10,30 @@ var url = 'mongodb://localhost:27017/myDatabase';
 
 /* GET HOME PAGE */
 
-router.get('/', function(req, res, next) {
-  res.render('login');
+router.get('/', ensureAuthenticated, function(req, res, next) {
+  res.render('index');
 });
 
 /* GET REGISTER ASSETS PAGE */
 
-router.get('/Reg-Asset', function(req, res, next) {
+router.get('/Reg-Asset', ensureAuthenticated, function(req, res, next) {
     res.render('regAsset');
 });
 
 /* GET REGISTER ASSETS PAGE */
 
-router.get('/Edit-Asset', function(req, res, next) {
+router.get('/Edit-Asset', ensureAuthenticated, function(req, res, next) {
     res.render('editAsset');
 });
 
 /* GET REGISTER ASSETS PAGE */
 
-router.get('/View-Asset', function(req, res, next) {
+router.get('/View-Asset', ensureAuthenticated, function(req, res, next) {
     res.render('index');
 });
 /* GET ASSET DATA FROM ASSETS COLLECTION */
 
-router.get('/get-data', function(req, res, next) {
+router.get('/get-data', ensureAuthenticated, function(req, res, next) {
   var resultArray = [];
   mongo.connect(url, function(err, db) {
     assert.equal(null, err);
@@ -50,7 +50,7 @@ router.get('/get-data', function(req, res, next) {
 
 /* INSERT ASSET VALUES FROM 'index.hbs' INTO ASSET COLLECTION */
 
-router.post('/insert', function(req, res, next) {
+router.post('/insert', ensureAuthenticated, function(req, res, next) {
   var Asset = {
     AssetID: req.body.AssetID,
     SerialNo: req.body.SerialNo,
@@ -80,7 +80,7 @@ router.post('/insert', function(req, res, next) {
 
 /* UPDATE ASSET VALUES FROM 'index.hbs' INTO ASSET COLLECTION */
 
-router.post('/update', function(req, res, next) {
+router.post('/update', ensureAuthenticated, function(req, res, next) {
   var Asset = {
       AssetID: req.body.AssetID,
       SerialNo: req.body.SerialNo,
@@ -111,7 +111,7 @@ router.post('/update', function(req, res, next) {
 
 /* DELETE ASSET VALUES FROM 'index.hbs' ON ASSET COLLECTION */
 
-router.post('/delete', function(req, res, next) {
+router.post('/delete', ensureAuthenticated, function(req, res, next) {
   var id = req.body.id;
 
   mongo.connect(url, function(err, db) {
@@ -125,5 +125,14 @@ router.post('/delete', function(req, res, next) {
 
     res.redirect('/get-data');
 });
+
+function ensureAuthenticated(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    } else {
+        req.flash('error_msg','You are not logged in');
+        res.redirect('/users/login');
+    }
+}
 
 module.exports = router;

@@ -2,13 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ title }}</title>
+    <title>SAM Application</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <a href="/View-Asset">View Assets</a>
-    <a href="/Reg-Asset">Register Assets</a>
-    <a href="/Edit-Asset">Edit Assets</a>
+
+
 </head>
 <body>
-    {{{ body }}}
+<div class="container">
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                {{#if user}}
+                    <li role="presentation"><a href="/">Dashboard</a></li>
+                    <li role="presentation"><a href="/Edit-Asset">Settings</a></li>
+                    <li role="presentation"><a href="/View-Asset">Assets</a></li>
+                    <li role="presentation"><a href="/Edit-Asset">Edit Assets</a></li>
+                    <li role="presentation"><a href="/Reg-Asset">Register Assets</a></li>
+                    <li role="presentation"><a href="/users/logout">Logout</a></li>
+                {{else}}
+                    <li role="presentation"><a href="/users/login">Login</a></li>
+                {{/if}}
+            </ul>
+        </nav>
+        <h3 class="text-muted">SAM Application</h3>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+
+            {{{body}}}
+        </div>
+
+
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2018 CGI.</p>
+    </footer>
+
+</div> <!-- /container -->
 </body>
 </html>
