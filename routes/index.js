@@ -11,7 +11,7 @@ var url = 'mongodb://localhost:27017/myDatabase';
 /* GET HOME PAGE */
 
 router.get('/', function(req, res, next) {
-  res.render('index');
+  res.render('login');
 });
 
 /* GET REGISTER ASSETS PAGE */
