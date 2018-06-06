@@ -1,3 +1,5 @@
+
+/* MODULE / MIDDLEWARE INSTALLED FOR NODE */
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -14,7 +16,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
-
+/* MONGOOSE CONNECTION ESTABLISHED FOR myDatabase */
 mongoose.connect('mongodb://localhost/myDatabase');
 var db = mongoose.connection;
 
@@ -23,31 +25,33 @@ var users = require('./routes/users');
 
 var app = express();
 
-// view engine setup
+/* VIEW ENGINE CONFIGURATION */
 app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'}));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+/* BODYPARSER CONFIGURATION */
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Express Session
+/* EXPRESS SESSION */
 app.use(session({
     secret: 'secret',
     saveUninitialized: true,
     resave: true
 }));
 
-// Passport init
+/* INITIALISE PASSPORT */
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Express Validator
+/* EXPRESS VALIDATOR */
 app.use(expressValidator({
     errorFormatter: function(param, msg, value) {
         var namespace = param.split('.')
@@ -65,10 +69,10 @@ app.use(expressValidator({
     }
 }));
 
-// Connect Flash
+/* CONNECT FLASH */
 app.use(flash());
 
-// Global Vars
+/* GLOBAL VARIABLES FOR LOGS */
 app.use(function (req, res, next) {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
@@ -77,20 +81,20 @@ app.use(function (req, res, next) {
     next();
 });
 
+/* USE INDEX.JS AND USERS.JS FOR ROUTES */
 app.use('/', routes);
 app.use('/users', users);
 
-// catch 404 and forward to error handler
+/* 404 ERROR HANDLING*/
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
-// error handlers
+/* ERROR HANDLERS */
 
-// development error handler
-// will print stacktrace
+/* PRINT STACK TRACE */
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
@@ -101,8 +105,7 @@ if (app.get('env') === 'development') {
   });
 }
 
-// production error handler
-// no stacktraces leaked to user
+/* NO STACK TRACE TO USERS */
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {

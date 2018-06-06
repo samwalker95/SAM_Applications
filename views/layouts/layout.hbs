@@ -12,10 +12,12 @@
 <div class="container">
     <div class="header clearfix">
         <nav>
+            <!-- NAVIGATION BAR - IF USER IS LOGGED IN SHOW SIX PAGES / ELSE ONLY SHOW LOGIN -->
             <ul class="nav nav-pills pull-right">
                 {{#if user}}
                     <li role="presentation"><a href="/">Dashboard</a></li>
                     <li role="presentation"><a href="/Edit-Asset">Settings</a></li>
+                    <li role="presentation"><a href="/users/regUser">Register New User</a></li>
                     <li role="presentation"><a href="/View-Asset">Assets</a></li>
                     <li role="presentation"><a href="/Edit-Asset">Edit Assets</a></li>
                     <li role="presentation"><a href="/Reg-Asset">Register Assets</a></li>
@@ -41,6 +43,6 @@
         <p>&copy; 2018 CGI.</p>
     </footer>
 
-</div> <!-- /container -->
+</div>
 </body>
 </html>
