@@ -31,7 +31,12 @@ section h3 {
 }
 
 .insert {
-  background: #2ecc71;
+  background: #F7F9F9;
+  margin: auto;
+  width: 50%;
+  margin: auto;
+  border: 3px solid darkred;
+  padding: 10px;
 }
 
 .get {
@@ -39,11 +44,21 @@ section h3 {
 }
 
 .update {
-  background: #3498db;
+  background: #F7F9F9;
+  margin: auto;
+  width: 45%;
+  margin: 5px;
+  border: 3px solid darkred;
+  padding: 10px;
 }
 
 .delete {
-  background: #e74c3c;
+  background: #F7F9F9;
+  margin: auto;
+  width: 45%;
+  margin: 5px;
+  border: 3px solid darkred;
+  padding: 10px;
 }
 
 .input label {

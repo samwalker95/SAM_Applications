@@ -1,0 +1,37 @@
+<h1>Assets Page</h1>
+<div class="container">
+    <table class="table">
+    <thead>
+    <tr>
+        <th scope="col">AssetID</th>
+        <th scope="col">SerialNo</th>
+        <th scope="col">Media</th>
+        <th scope="col">CopyNo</th>
+        <th scope="col">Location</th>
+        <th scope="col">Description</th>
+        <th scope="col">RegisteredBy</th>
+        <th scope="col">RegisteredDate</th>
+        <th scope="col">ProtectiveMarking</th>
+        <th scope="col">Status</th>
+        <th scope="col">ID</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {{# each items }}
+        <tr>
+            <td>{{ this.AssetID }}</td>
+            <td>{{ this.SerialNo }}</td>
+            <td>{{ this.Media }}</td>
+            <td>{{ this.CopyNo }}</td>
+            <td>{{ this.Location }}</td>
+            <td>{{ this.Description }}</td>
+            <td>{{ this.RegisteredBy }}</td>
+            <td>{{ this.RegisteredDate }}</td>
+            <td>{{ this.ProtectiveMarking }}</td>
+            <td>{{ this.Status }}</td>
+            <td>{{ this._id }}</td>
+        </tr>
+    {{/each}}
+    </tbody>
+    </table>

@@ -1,109 +1,57 @@
-<h1>editAsset</h1>
-
-
-<!-- SECTION FOR INSERTING EXISTING ASSETS -->
-
-<!--<section class="insert">
-    <h3>Insert Data</h3>
-    <form action="/insert" method="post">
-        <div class="input">
-            <label for="AssetID">AssetID</label>
-            <input type="text" id="AssetID" name="AssetID">
-        </div>
-        <div class="input">
-            <label for="Serial No">SerialNo</label>
-            <input type="text" id="SerialNo" name="SerialNo">
-        </div>
-        <div class="input">
-            <label for="Media">Media</label>
-            <input type="text" id="Media" name="Media">
-        </div>
-        <div class="input">
-            <label for="Copy No">CopyNo</label>
-            <input type="text" id="CopyNo" name="CopyNo">
-        </div>
-        <div class="input">
-            <label for="Location">Location</label>
-            <input type="text" id="Location" name="Location">
-        </div>
-        <div class="input">
-            <label for="Description">Description</label>
-            <input type="text" id="Description" name="Description">
-        </div>
-        <div class="input">
-            <label for="Registered By">RegisteredBy</label>
-            <input type="text" id="RegisteredBy" name="RegisteredBy">
-        </div>
-        <div class="input">
-            <label for="Registered Date">RegisteredDate</label>
-            <input type="text" id="RegisteredDate" name="RegisteredDate">
-        </div>
-        <div class="input">
-            <label for="Protective Marking">ProtectiveMarking</label>
-            <input type="text" id="ProtectiveMarking" name="ProtectiveMarking">
-        </div>
-        <div class="input">
-            <label for="Status">Status</label>
-            <input type="text" id="Status" name="Status">
-        </div>
-        <button type="submit">INSERT</button>
-    </form>
-</section>-->
-
-<!-- SECTION FOR RETRIEVING EXISTING ASSETS FROM 'ASSETS' COLLECTION -->
+<h1>Edit Asset</h1>
 
 <!-- SECTION FOR UPDATING EXISTING ASSETS -->
 
 <section class="update">
-    <h3>Update Data</h3>
+    <h3>Update Assets</h3>
     <form action="/update" method="post">
         <div class="input">
             <label for="id">ID</label>
-            <input type="text" id="id" name="id">
+            <input type="text" class="form-control" id="id" name="id">
             <div class="input">
                 <label for="AssetID">AssetID</label>
-                <input type="text" id="AssetID" name="AssetID">
+                <input type="text" class="form-control" id="AssetID" name="AssetID">
             </div>
             <div class="input">
                 <label for="Serial No">SerialNo</label>
-                <input type="text" id="SerialNo" name="SerialNo">
+                <input type="text" class="form-control" id="SerialNo" name="SerialNo">
             </div>
             <div class="input">
                 <label for="Media">Media</label>
-                <input type="text" id="Media" name="Media">
+                <input type="text" class="form-control" id="Media" name="Media">
             </div>
             <div class="input">
                 <label for="Copy No">CopyNo</label>
-                <input type="text" id="CopyNo" name="CopyNo">
+                <input type="text" class="form-control" id="CopyNo" name="CopyNo">
             </div>
             <div class="input">
                 <label for="Location">Location</label>
-                <input type="text" id="Location" name="Location">
+                <input type="text" class="form-control" id="Location" name="Location">
             </div>
             <div class="input">
                 <label for="Description">Description</label>
-                <input type="text" id="Description" name="Description">
+                <input type="text" class="form-control" id="Description" name="Description">
             </div>
             <div class="input">
                 <label for="Registered By">RegisteredBy</label>
-                <input type="text" id="RegisteredBy" name="RegisteredBy">
+                <input type="text" class="form-control" id="RegisteredBy" name="RegisteredBy">
             </div>
             <div class="input">
                 <label for="Registered Date">RegisteredDate</label>
-                <input type="text" id="RegisteredDate" name="RegisteredDate">
+                <input type="text" class="form-control" id="RegisteredDate" name="RegisteredDate">
             </div>
             <div class="input">
                 <label for="Protective Marking">ProtectiveMarking</label>
-                <input type="text" id="ProtectiveMarking" name="ProtectiveMarking">
+                <input type="text" class="form-control" id="ProtectiveMarking" name="ProtectiveMarking">
             </div>
             <div class="input">
                 <label for="Status">Status</label>
-                <input type="text" id="Status" name="Status">
+                <input type="text" class="form-control" id="Status" name="Status">
             </div>
         </div>
-        <button type="submit">UPDATE</button>
+        <br>
+        <button type="submit" class="btn btn-default" >UPDATE</button>
     </form>
-</section>
 </section>
 
 <!-- SECTION FOR DELETING EXISTING ASSETS -->
@@ -113,8 +61,9 @@
     <form action="/delete" method="post">
         <div class="input">
             <label for="id">ID</label>
-            <input type="text" id="id" name="id">
+            <input type="text" class="form-control" id="id" name="id">
         </div>
-        <button type="submit">DELETE</button>
+        <br>
+        <button type="submit" class="btn btn-default">DELETE</button>
     </form>
 </section>

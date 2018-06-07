@@ -38,7 +38,7 @@ router.get('/get-data', ensureAuthenticated, function(req, res, next) {
       resultArray.push(doc);
     }, function() {
       db.close();
-      res.render('index', {items: resultArray});
+      res.render('viewAssets', {items: resultArray});
     });
   });
 });

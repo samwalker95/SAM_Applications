@@ -3,46 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <title>SAM Application</title>
-    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
-
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
 
 </head>
 <body>
-<div class="container">
-    <div class="header clearfix">
-        <nav>
-            <!-- NAVIGATION BAR - IF USER IS LOGGED IN SHOW SIX PAGES / ELSE ONLY SHOW LOGIN -->
-            <ul class="nav nav-pills pull-right">
-                {{#if user}}
-                    <li role="presentation"><a href="/">Dashboard</a></li>
-                    <li role="presentation"><a href="/Edit-Asset">Settings</a></li>
-                    <li role="presentation"><a href="/users/regUser">Register New User</a></li>
-                    <li role="presentation"><a href="/View-Asset">Assets</a></li>
-                    <li role="presentation"><a href="/Edit-Asset">Edit Assets</a></li>
-                    <li role="presentation"><a href="/Reg-Asset">Register Assets</a></li>
-                    <li role="presentation"><a href="/users/logout">Logout</a></li>
-                {{else}}
-                    <li role="presentation"><a href="/users/login">Login</a></li>
-                {{/if}}
-            </ul>
-        </nav>
-        <h3 class="text-muted">SAM Application</h3>
-    </div>
+    <div class="container col-md-6">
+        <div class="header clearfix">
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <a class="navbar-brand" href="/">SAM Application</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        {{#if user}}
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="/">Dashboard</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="/users/regUser">Register New User</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="/Get-Data">Assets</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="/Edit-Asset">Edit Assets</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="/Reg-Asset">Register Assets</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="/users/logout">Logout</a></li>
+                        {{else}}
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="/users/login">Login</a></li>
+                        {{/if}}
+                    </ul>
+                </div>
+            </nav>
 
-    <div class="row">
-        <div class="col-lg-12">
+            <main role="main" class="container">
+                <div class="jumbotron">
+                    {{{body}}}
+                </div>
+            </main>
 
-            {{{body}}}
+            <div class="row">
+
+
+            </div>
         </div>
-
-
     </div>
+
 
     <footer class="footer">
         <p>&copy; 2018 CGI.</p>
     </footer>
 
-</div>
+    <!--<nav>
+                 NAVIGATION BAR - IF USER IS LOGGED IN SHOW SIX PAGES / ELSE ONLY SHOW LOGIN
+                <ul class="nav nav-pills pull-right">
+
+                    {{#if user}}
+                        <li role="presentation"><a href="/">Dashboard</a></li>
+                        <li role="presentation"><a href="/Edit-Asset">Settings</a></li>
+                        <li role="presentation"><a href="/users/regUser">Register New User</a></li>
+                        <li role="presentation"><a href="/View-Asset">Assets</a></li>
+                        <li role="presentation"><a href="/Edit-Asset">Edit Assets</a></li>
+                        <li role="presentation"><a href="/Reg-Asset">Register Assets</a></li>
+                        <li role="presentation"><a href="/users/logout">Logout</a></li>
+                    {{else}}
+                        <li role="presentation"><a href="/users/login">Login</a></li>
+                    {{/if}}
+                </ul>
+            </nav>
+            <h3 class="text-muted">SAM Application</h3>
+        </div>-->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 </body>
 </html>
