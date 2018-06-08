@@ -1,9 +1,10 @@
 <h1>Register New Assets</h1>
 
 <!-- SECTION FOR INSERTING EXISTING ASSETS -->
-
+<br>
 <Section class="insert">
     <h3>Create Assets</h3>
+    <br>
     <form action="/insert" method="post">
         <div class="input">
             <label for="AssetID">AssetID</label>
@@ -15,7 +16,12 @@
         </div>
         <div class="input">
             <label for="Media">Media</label>
-            <input type="text" class="form-control" id="Media" name="Media">
+            <select class="form-control" id="Media" name="Media">
+                <option>CD</option>
+                <option>DVD</option>
+                <option>Paper</option>
+                <option>HDD</option>
+            </select>
         </div>
         <div class="input">
             <label for="Copy No">CopyNo</label>
@@ -23,7 +29,11 @@
         </div>
         <div class="input">
             <label for="Location">Location</label>
-            <input type="text" class="form-control" id="Location" name="Location">
+            <select class="form-control" id="Location" name="Location">
+                <option>250 Brook Drive Reading</option>
+                <option>9 Queens Road Aberdeen</option>
+                <option>Unit 1240 Lansdowne Court Gloucester </option>
+            </select>
         </div>
         <div class="input">
             <label for="Description">Description</label>
@@ -34,16 +44,28 @@
             <input type="text" class="form-control" id="RegisteredBy" name="RegisteredBy">
         </div>
         <div class="input">
-            <label for="Registered Date">RegisteredDate</label>
-            <input type="text" class="form-control" id="RegisteredDate" name="RegisteredDate">
+            <label for="Registered Date">Registered Date</label>
+            <div class="input">
+                <input class="form-control" type="date" value="2011-08-19" id="RegisteredDate" name="RegisteredDate">
+            </div>
         </div>
         <div class="input">
-            <label for="Protective Marking">ProtectiveMarking</label>
-            <input type="text" class="form-control" id="ProtectiveMarking" name="ProtectiveMarking">
+            <label for="Protective Marking">Protective Marking</label>
+            <select class="form-control" id="Protective Marking" name="Protective Marking">
+                <option>OFFICIAL</option>
+                <option>OFFICIAL SENSITIVE</option>
+                <option>SECRET</option>
+                <option>TOP SECRET</option>
+            </select>
         </div>
         <div class="input">
             <label for="Status">Status</label>
-            <input type="text" class="form-control" id="Status" name="Status">
+            <select class="form-control" id="Status" name="Status">
+                <option>ACTIVE</option>
+                <option>TRANSFERRED</option>
+                <option>AWAITING DESTRUCTION</option>
+                <option>DESTROYED</option>
+            </select>
         </div>
         <br>
         <button type="submit" class="btn btn-default">INSERT</button>

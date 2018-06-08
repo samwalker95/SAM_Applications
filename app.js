@@ -15,6 +15,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
+var assert = require('assert');
 
 /* MONGOOSE CONNECTION ESTABLISHED FOR myDatabase */
 mongoose.connect('mongodb://localhost/myDatabase');
@@ -85,33 +86,34 @@ app.use(function (req, res, next) {
 app.use('/', routes);
 app.use('/users', users);
 
-/* 404 ERROR HANDLING*/
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
+// /* 404 ERROR HANDLING*/
+// app.use(function(req, res, next) {
+//     var err = new Error('Not Found');
+//     err.status = 404;
+//     next(err);
+// });
+//
+// /* ERROR HANDLERS */
+//
+// /* PRINT STACK TRACE */
+// if (app.get('env') === 'development') {
+//     app.use(function(err, req, res, next) {
+//         res.status(err.status || 500);
+//         res.render('error', {
+//             message: err.message,
+//             error: err
+//         });
+//     });
+// }
+//
+// /* NO STACK TRACE TO USERS */
+// app.use(function(err, req, res, next) {
+//     res.status(err.status || 500);
+//     res.render('error', {
+//         message: err.message,
+//         error: {}
+//     });
+// });
 
-/* ERROR HANDLERS */
-
-/* PRINT STACK TRACE */
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
-  });
-}
-
-/* NO STACK TRACE TO USERS */
-app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
-});
 
 module.exports = app;
