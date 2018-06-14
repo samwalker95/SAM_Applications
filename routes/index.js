@@ -22,18 +22,6 @@ var assetsSchema = new schema( {
 var assetData = mongoose.model('assetData', assetsSchema);
 
 
-/* GET HOME PAGE */
-// router.get('/', ensureAuthenticated, function(req, res, next) {
-//
-//     assetData.find({Media: 'CD'})
-//         .then(function (cds) {
-//             console.log(cds);
-//             res.render('index', {cds: cds.length});
-//         });
-//
-//
-// });
-
 router.get('/', ensureAuthenticated, function(req, res, next) {
 
     assetData.find({Media: 'CD'})
