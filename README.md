@@ -1,5 +1,7 @@
 # SAM_Applications
 
+Below are the dependencies required for the application to run. Once the MongoDB has been installed on the workstation / server, NodeJS will also be required to be installed. Download the application from github repository specified in the document. Unpackage the application in an appropriate location (For example, your ‘Documents’). From the NodeJS command line, change directory to the package root. Run the following command for the dependencies: 
+
 #Install the appropriate MongoDB OS version on your computer
 https://www.mongodb.com/download-center?jmp=nav#previous
 
